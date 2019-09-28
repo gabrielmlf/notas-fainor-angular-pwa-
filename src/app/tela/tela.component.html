@@ -1,0 +1,55 @@
+<div class="container vh-100">
+<div class="row d-flex justify-content-center mb-3 mt-5">
+   <div class="col-12 text-center">
+    <img src="../../assets/logo.png" width="90vw" height="90vh">
+</div> 
+</div>
+    <form>
+        <div class="row d-flex justify-content-center mb-3">
+            <div class="col-10">
+                <mat-form-field class="example-full-width">
+                    <input matInput type="tel" placeholder="Nota da 1ª unidade" [(ngModel)]="primeiraUnidade"
+                        name="primeiraUnidade">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center mb-3">
+            <div class="col-10">
+                <mat-form-field class="example-full-width">
+                    <input matInput type="tel" placeholder="Nota da 2ª unidade" [(ngModel)]="segundaUnidade"
+                        name="primeiraUnidade">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center mb-3">
+            <div class="col-10">
+                <mat-form-field class="example-full-width">
+                    <input matInput type="tel" placeholder="Nota da 3ª unidade" [(ngModel)]="terceiraUnidade"
+                        name="primeiraUnidade">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center mb-3">
+            <div class="col-10">
+                <button class="btn btn-block btn-primary" (click)="calcular()">Calcular</button>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center mb-3">
+            <div class="col-10 text-center">
+                <label *ngIf="carregando"><i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i></label>
+                <label *ngIf="!carregando">
+                    <label *ngIf="resultado">MEDIA GERAL : {{mediaGeral| arredondar:2}}</label>
+                    <br>
+                    <label *ngIf="resultado && !final && !reprovado">Eh tu passou doido, semestre que vem piora
+                        :)</label>
+                    <label *ngIf="final">Todo campeao passa pela final tu precisa de {{notaFinal| arredondar:2}} na final pra passar
+                        (ou pode pedir {{notaFaltante| arredondar:2}} pro professor)</label>
+                    <label *ngIf="reprovado">Tenta semestre que vem (ou pede {{notaFaltante | arredondar:2}} pro
+                        professor)</label>
+                    <label *ngIf="!resultado"></label>
+                    <label *ngIf="troll">Trola n doido</label>
+                </label>
+            </div>
+        </div>
+    </form>
+</div>
